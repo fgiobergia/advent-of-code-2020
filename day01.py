@@ -1,7 +1,7 @@
 from itertools import combinations
 
 if __name__ == "__main__":
-    with open("day1.input") as f:
+    with open("day01.input") as f:
         entries = set(map(int, f.readlines()))
     mul = [ e for e in entries if 2020-e in entries ]
     print(mul[0]*mul[1])
