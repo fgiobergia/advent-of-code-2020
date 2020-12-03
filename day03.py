@@ -1,4 +1,5 @@
 from functools import reduce
+
 if __name__ == "__main__":
     with open("day03.input") as f:
         grid = [ l.strip() for l in f ]
