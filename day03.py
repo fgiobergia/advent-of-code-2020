@@ -13,4 +13,4 @@ if __name__ == "__main__":
             ]
     
     print(trees[1])
-    print(reduce(lambda a,b: a*b, trees, 1))
+    print(reduce(lambda a,b: a*b, trees))
