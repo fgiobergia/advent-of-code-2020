@@ -1,5 +1,3 @@
-from functools import reduce
-
 def in_bounds(grid, a, b):
     return 0<=a<len(grid) and 0<=b<len(grid[a])
 
