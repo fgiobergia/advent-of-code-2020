@@ -1,15 +1,14 @@
 def in_bounds(grid, a, b):
     return 0<=a<len(grid) and 0<=b<len(grid[a])
 
-def neighbors(grid, y, x, max_depth):
+def neighbors(grid, y, x, search):
     a = b = 0
     for i in range(-1,2):
         for j in range(-1,2):
             if i or j:
                 off_i = i
                 off_j = j
-                depth = 0
-                while in_bounds(grid, y+off_i, x+off_j) and grid[y+off_i][x+off_j]=="." and depth < max_depth:
+                while in_bounds(grid, y+off_i, x+off_j) and grid[y+off_i][x+off_j]=="." and search:
                     off_i += i
                     off_j += j
                 
@@ -26,10 +25,10 @@ def choose(neigh, curr, thresh):
         return "L"
     return curr
 
-def simulate(grid, max_depth, neigh):
+def simulate(grid, search, neigh):
     while True:
         # not particularly efficient, but eh
-        new_grid = [ [ choose(neighbors(grid,y,x,max_depth), grid[y][x], neigh) for x in range(len(grid[y])) ] for y in range(len(grid)) ]
+        new_grid = [ [ choose(neighbors(grid,y,x,search), grid[y][x], neigh) for x in range(len(grid[y])) ] for y in range(len(grid)) ]
         if new_grid == grid:
             break
         grid = new_grid
@@ -38,7 +37,6 @@ def simulate(grid, max_depth, neigh):
 if __name__ == "__main__":
     with open("day11.input") as f:
         grid = [ list(line.strip()) for line in f.readlines() ]
-    max_depth = max(len(grid), len(grid[0]))
 
-    print(simulate(grid,0,4))
-    print(simulate(grid,max_depth,5))
+    print(simulate(grid,False,4))
+    print(simulate(grid,True,5))
