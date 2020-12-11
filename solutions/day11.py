@@ -17,6 +17,15 @@ def neighbors(grid, y, x, max_depth):
                 b += in_bounds(grid,y+off_i,x+off_j) and grid[y+off_i][x+off_j] == "#"
     return a,b
 
+def choose(neigh, curr, thresh):
+    if curr == ".":
+        return "."
+    if neigh[0] == 8:
+        return "#"
+    if neigh[1] >= thresh and curr == "#":
+        return "L"
+    return curr
+
 def simulate(grid, max_depth, neigh):
     while True:
         # not particularly efficient, but eh
@@ -26,20 +35,9 @@ def simulate(grid, max_depth, neigh):
         grid = new_grid
     return sum(x.count("#") for x in new_grid )
 
-
-def choose(neigh, curr, thresh):
-    if curr == ".":
-        return "."
-    if neigh[0] == 8:
-        return "#"
-    elif neigh[1] >= thresh and curr == "#":
-        return "L"
-    return curr
-
 if __name__ == "__main__":
     with open("day11.input") as f:
         grid = [ list(line.strip()) for line in f.readlines() ]
-    
     max_depth = max(len(grid), len(grid[0]))
 
     print(simulate(grid,0,4))
