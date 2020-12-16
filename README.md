@@ -12,4 +12,4 @@ Let's get the coding juices flowing with [Advent of Code](https://adventofcode.c
 |  5  |   ✅  | 13  |   ✅  |  21  |   🔒  |     |       |
 |  6  |   ✅  | 14  |   ✅  |  22  |   🔒  |     |       |
 |  7  |   ✅  | 15  |   ✅  |  23  |   🔒  |     |       |
-|  8  |   ✅  | 16  |   🔒  |  24  |   🔒  |     |       |
+|  8  |   ✅  | 16  |   ✅  |  24  |   🔒  |     |       |
