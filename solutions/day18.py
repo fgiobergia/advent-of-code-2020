@@ -45,6 +45,6 @@ if __name__ == "__main__":
     with open("day18.input") as f:
         expressions = [ list(map(read_value,line.strip().replace(" ",""))) for line in f.readlines() ]
     
-    print(sum(map(lambda e: parse2(e,0,[],False), expressions)))
-    print(sum(map(lambda e: parse2(e,0,[],True), expressions)))
+    print(sum(map(lambda e: parse(e,0,[],False), expressions)))
+    print(sum(map(lambda e: parse(e,0,[],True), expressions)))
     print(sum(map(sol2_lulz, expressions)))
