@@ -5,10 +5,10 @@ def parse(exp, i, stack, precedence):
     if len(stack) >= 3:
         new_val = None
         # num + num in stack
-        if isinstance(stack[-1],int) and stack[-2] in "+" and isinstance(stack[-3],int):
+        if isinstance(stack[-1],int) and stack[-2] == "+" and isinstance(stack[-3],int):
             new_val = stack[-1] + stack[-3]
-        # num * num in stack and next comes a ) or EndOfEquation
-        elif isinstance(stack[-1],int) and stack[-2] in "*" and isinstance(stack[-3],int) and (not precedence or i==len(exp) or exp[i]==")"):
+        # num * num in stack and next comes a ) or EndOfExpression
+        elif isinstance(stack[-1],int) and stack[-2] == "*" and isinstance(stack[-3],int) and (not precedence or i==len(exp) or exp[i]==")"):
             new_val = stack[-1] * stack[-3]
         if stack[-1] == ")" and isinstance(stack[-2],int) and stack[-3] == "(":
             new_val = stack[-2]
