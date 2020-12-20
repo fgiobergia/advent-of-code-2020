@@ -1,4 +1,4 @@
-# day 20: I'm failing to remember what clean code looked like
+# day 20: I'm failing to remember what clean code is supposed to look like
 
 import numpy as np # using some shortcuts here
 from functools import reduce
@@ -104,7 +104,15 @@ if __name__ == "__main__":
                 break
     
     min_y, max_y, min_x, max_x = buncha.bounds()
-    print(reduce(lambda a,b: a*b, [ buncha.tiles[buncha.pos.index(k)].tile_num for k in [(min_y, min_x), (min_y,max_x), (max_y,min_x), (max_y,max_x)]]))
+    corners = [ buncha.tiles[buncha.pos.index(k)].tile_num
+                for k in [
+                    (min_y, min_x),
+                    (min_y,max_x),
+                    (max_y,min_x),
+                    (max_y,max_x)
+                ]
+            ]
+    print(reduce(lambda a,b: a*b, corners))
 
     buncha.rescale()
     g = [ [ None for _ in range(max_x-min_x+1) ] for _ in range(max_y-min_y+1) ]
