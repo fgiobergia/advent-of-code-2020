@@ -9,10 +9,10 @@ sys.setrecursionlimit(12000)
 def play(players):
     while True: # until one wins
         cards = players[0].pop(0), players[1].pop(0)
-        round_winner = cards[1]>cards[0] # round winner
+        round_winner = cards[1]>cards[0]
         players[round_winner].extend([cards[round_winner], cards[not round_winner]])
         if not players[not round_winner]:
-            return players[round_winner]
+            return round_winner
 
 def recursive_play(players, prev_states):
     if (tuple(players[0]), tuple(players[1])) in prev_states:
@@ -22,7 +22,6 @@ def recursive_play(players, prev_states):
     cards = players[0].pop(0), players[1].pop(0)   
 
     if len(players[0])<cards[0] or len(players[1])<cards[1]:
-        # print("at least one player cannot continue")
         round_winner = cards[1]>cards[0]
     else:
         # else, play a subgame!
@@ -51,7 +50,7 @@ if __name__ == "__main__":
     
     players_copy = { k: v.copy() for k,v in players.items() }
     winner = play(players)
-    print(sum([b*(len(winner)-a) for a,b in enumerate(winner) ]))
+    print(sum([b*(len(players[winner])-a) for a,b in enumerate(players[winner]) ]))
 
     players = players_copy
     winner = recursive_play(players, set())
