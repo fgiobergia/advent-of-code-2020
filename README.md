@@ -13,4 +13,4 @@ Let's get the coding juices flowing with [Advent of Code](https://adventofcode.c
 |  16  |   🌟  | 17 |   🌟  |  18  |   🌟  |
 |  19  |   🌟  | 20 |   🌟  |  21  |   🌟  |
 |  22  |   🌟  | 23 |   🌟  |  24  |   🌟  |
-|      |       | 25 |  🔒   |      |      |
+|      |       | 25 |  🌟   |      |      |
